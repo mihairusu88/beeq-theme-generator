@@ -44,4 +44,4 @@ We welcome contributions of any kind. If you'd like to contribute, please fork t
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/845034d9-440c-4700-abcc-e137ee0af725/deploy-status?branch=master)](https://app.netlify.com/sites/beeq-theme-generator/deploys)
 
-[Live Demo](https://vue-customize-me.netlify.app/)
+[Live Demo](https://beeq-theme-generator.netlify.app/)
