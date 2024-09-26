@@ -42,6 +42,6 @@ We welcome contributions of any kind. If you'd like to contribute, please fork t
 
 ### Check live demo on netlify
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/672ed666-3daa-403d-b328-bffbf9ddbce4/deploy-status?branch=master)](https://app.netlify.com/sites/vue-customize-me/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/845034d9-440c-4700-abcc-e137ee0af725/deploy-status?branch=master)](https://app.netlify.com/sites/beeq-theme-generator/deploys)
 
 [Live Demo](https://vue-customize-me.netlify.app/)
