@@ -1,7 +1,9 @@
 <script setup lang="js">
 import { useThemeStore } from '../stores/themeStore';
+import { useWindowScroll } from "@vueuse/core";
 import { computed } from 'vue';
 
+const { x, y } = useWindowScroll();
 const themeStore = useThemeStore();
 const isLightTheme = computed(() => {
   return themeStore.currentTheme === 'light';
@@ -12,7 +14,7 @@ const toggleTheme = () => {
 };
 
 const scrollToTop = () => {
-  window.scrollTo(0, 0, { behavior: 'smooth' });
+  y.value = 0;
 };
 </script>
 
