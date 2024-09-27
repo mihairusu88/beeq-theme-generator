@@ -65,6 +65,7 @@ const steps = [
 
 const onCloseOnboarding = () => {
   localStorage.setItem('beeqThemeGenerator_isOnboarded', true);
+  setBodyOverflow('auto');
 };
 
 const handleDOMContentLoaded = () => {
@@ -73,8 +74,15 @@ const handleDOMContentLoaded = () => {
   if (!isOnboarded) {
     setTimeout(() => {
       start();
+
+      setBodyOverflow('hidden');
     }, 200);
   }
+};
+
+const setBodyOverflow = (overflow = 'hidden') => {
+  const body = document.querySelector('body');
+  body.style.overflow = overflow;
 };
 
 watch(themeStyle, (newStyle) => {
@@ -192,6 +200,7 @@ body[bq-mode='dark'] .v-onboarding-item__description {
   flex-direction: column;
   justify-items: flex-start;
   max-width: 1200px;
+  width: 100vw;
   gap: 30px;
   padding-bottom: 40px;
 }
