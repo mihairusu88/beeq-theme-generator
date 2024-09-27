@@ -8,7 +8,7 @@ const isDrawerOpen = ref(false);
 <template>
   <Card title="Drawer" class="card-wrapper">
     <bq-button @click="isDrawerOpen = true">Open Drawer</bq-button>
-    <bq-drawer placement="right" enable-backdrop :open="isDrawerOpen">
+    <bq-drawer position="right" enable-backdrop :open="isDrawerOpen">
       <div class="drawer-title" slot="title">Title</div>
       <div class="drawer-description">Content</div>
       <div class="drawer-footer" slot="footer">

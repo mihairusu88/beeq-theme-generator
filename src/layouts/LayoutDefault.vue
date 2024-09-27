@@ -1,21 +1,37 @@
 <script setup lang="js">
 import { useThemeStore } from '../stores/themeStore';
-import { useWindowScroll } from "@vueuse/core";
-import { computed } from 'vue';
+import { computed, onMounted, onUnmounted } from 'vue';
 
-const { x, y } = useWindowScroll();
 const themeStore = useThemeStore();
-const isLightTheme = computed(() => {
-  return themeStore.currentTheme === 'light';
-});
+const isLightTheme = computed(() => themeStore.currentTheme === 'light');
 
 const toggleTheme = () => {
-  themeStore.setTheme(themeStore.currentTheme === 'light' ? 'dark' : 'light');
+  themeStore.setTheme(isLightTheme.value ? 'dark' : 'light');
 };
 
-const scrollToTop = () => {
-  y.value = 0;
+const handleBackToTopButtonClick = (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 };
+
+const addBackToTopButtonEventListener = () => {
+  const button = document.querySelector('.layout__back-to-top-button');
+  if (!button) return;
+
+  button.addEventListener('click', handleBackToTopButtonClick);
+};
+
+const removeBackToTopButtonEventListener = () => {
+  const button = document.querySelector('.layout__back-to-top-button');
+  if (!button) return;
+
+  button.removeEventListener('click', handleBackToTopButtonClick);
+};
+
+onMounted(addBackToTopButtonEventListener);
+onUnmounted(removeBackToTopButtonEventListener);
 </script>
 
 <template>
@@ -79,7 +95,6 @@ const scrollToTop = () => {
       :border="'full'"
       size="medium"
       style="--bq-stroke--brand: #4f46e5"
-      @bqClick="scrollToTop"
     >
       <bq-icon name="arrow-up" style="--bq-icon--size: 24px; --bq-icon--color: #4f46e5" size="24"></bq-icon>
     </bq-button>

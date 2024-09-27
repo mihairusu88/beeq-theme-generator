@@ -22,7 +22,7 @@ import Card from '@/components/Card.vue';
     <div>
       <bq-toast type="custom" open @bqHide="$event.preventDefault()">
         This is a message
-        <bq-icon slot="icon" weight="bold" name="star"></bq-icon>
+        <bq-icon slot="icon" name="star-bold"></bq-icon>
       </bq-toast>
     </div>
   </Card>
