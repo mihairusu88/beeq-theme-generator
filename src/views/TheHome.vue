@@ -71,7 +71,9 @@ const handleDOMContentLoaded = () => {
   const isOnboarded = localStorage.getItem('beeqThemeGenerator_isOnboarded');
 
   if (!isOnboarded) {
-    start();
+    setTimeout(() => {
+      start();
+    }, 200);
   }
 };
 
