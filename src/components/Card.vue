@@ -12,6 +12,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  toggleButtonId: {
+    type: String,
+    default: '',
+  },
 });
 
 const emit = defineEmits(['toggle']);
@@ -23,6 +27,7 @@ const emit = defineEmits(['toggle']);
       <h1 class="card__title">{{ title }}</h1>
       <div
         v-if="showToggleButton"
+        :id="toggleButtonId"
         class="toggle-button"
         :class="{ inactive: !isExpanded }"
         @click="emit('toggle', !isExpanded)"

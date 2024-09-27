@@ -16,6 +16,7 @@
     "@vueuse/core": "^11.1.0",
     "@wdns/vue-code-block": "^2.3.3",
     "pinia": "^2.2.2",
+    "v-onboarding": "^2.8.2",
     "vue": "^3.4.27",
     "vue-router": "^4.3.2",
     "vue3-colorpicker": "^2.3.0"

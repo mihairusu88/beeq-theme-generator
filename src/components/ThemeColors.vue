@@ -26,8 +26,8 @@ const openDialog = () => {
 
 <template>
   <div class="theme-colors__buttons">
-    <button type="button" class="reset-button" @click="resetToDefault">Reset to Default</button>
-    <button type="button" class="export-button" @click="openDialog">Export</button>
+    <button id="reset-button" type="button" class="reset-button" @click="resetToDefault">Reset to Default</button>
+    <button id="export-button" type="button" class="export-button" @click="openDialog">Export</button>
     <bq-dialog class="export-dialog" :open="isDialogOpen" hide-close-button>
       <h5 slot="title">Export Theme CSS Global Variables</h5>
       <p style="margin-bottom: 20px">Copy and paste this code into your CSS</p>
@@ -52,6 +52,7 @@ const openDialog = () => {
       showToggleButton
       @toggle="(value) => (isExpandedBrandColors = value)"
       :isExpanded="isExpandedBrandColors"
+      toggleButtonId="brand-colors-toggle-button"
     >
       <div class="theme-colors__color-section-colors">
         <ColorPicker
