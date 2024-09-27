@@ -1,13 +1,7 @@
 <script setup lang="js">
 import Buttons from './TheHome/Buttons.vue';
-import IconButtons from './TheHome/IconButtons.vue';
 import Accordions from './TheHome/Accordions.vue';
-import AccordionsGhost from './TheHome/AccordionsGhost.vue';
 import Alert from './TheHome/Alert.vue';
-import AlertInfo from './TheHome/AlertInfo.vue';
-import AlertSuccess from './TheHome/AlertSuccess.vue';
-import AlertWarning from './TheHome/AlertWarning.vue';
-import AlertError from './TheHome/AlertError.vue';
 import Avatar from './TheHome/Avatar.vue';
 import Badge from './TheHome/Badge.vue';
 import Breadcrumb from './TheHome/Breadcrumb.vue';
@@ -69,14 +63,8 @@ watch(themeStyle, (newStyle) => {
       <p>Choose your colors from the sections below and customize your themes as you want.</p>
       <ThemeColors />
       <Buttons />
-      <IconButtons />
       <Accordions />
-      <AccordionsGhost />
       <Alert />
-      <AlertInfo />
-      <AlertSuccess />
-      <AlertWarning />
-      <AlertError />
       <Avatar />
       <Badge />
       <Breadcrumb />

@@ -3,7 +3,7 @@ import Card from '@/components/Card.vue';
 </script>
 
 <template>
-  <Card title="Accordions Default (Filled)">
+  <Card title="Accordion">
     <div class="card__content-wrapper">
       <bq-accordion-group>
         <bq-accordion>
