@@ -83,7 +83,9 @@ import Card from '@/components/Card.vue';
 .card__content-wrapper {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 10px;
+
+  @apply md:grid-cols-3;
 }
 </style>

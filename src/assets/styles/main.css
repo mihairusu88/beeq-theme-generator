@@ -1,4 +1,5 @@
 @import '@beeq/core/dist/beeq/beeq.css';
+@import 'tailwind.css';
 
 #app {
   margin: 0 auto;

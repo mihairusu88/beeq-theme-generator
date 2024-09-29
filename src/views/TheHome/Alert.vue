@@ -132,7 +132,13 @@ import Card from '@/components/Card.vue';
 
 .card-wrapper :deep(.card__content) div {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 10px;
+
+  @apply md:grid-cols-3;
+}
+
+.card-wrapper :deep(.card__content) div bq-alert {
+  display: block;
 }
 </style>

@@ -107,9 +107,6 @@ import Card from '@/components/Card.vue';
 }
 
 .card-wrapper :deep(.card__content) div {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  gap: 10px;
+  @apply flex flex-col items-center gap-[10px] md:flex-row md:justify-center md:items-start;
 }
 </style>

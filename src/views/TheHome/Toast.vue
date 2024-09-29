@@ -39,5 +39,7 @@ import Card from '@/components/Card.vue';
   display: flex;
   width: 100%;
   justify-content: center;
+
+  @apply flex flex-col items-center w-full md:flex-row md:justify-center md:items-start;
 }
 </style>

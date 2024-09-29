@@ -25,25 +25,25 @@ const openDialog = () => {
 </script>
 
 <template>
+  <bq-dialog class="export-dialog" :open="isDialogOpen" hide-close-button>
+    <h5 slot="title">Export Theme CSS Global Variables</h5>
+    <p style="margin-bottom: 20px">Copy and paste this code into your CSS</p>
+    <VCodeBlock
+      :code="themeStyle"
+      highlightjs
+      persistentCopyButton
+      maxHeight="500px"
+      lang="css"
+      :theme="isLightTheme ? 'default' : 'github-dark'"
+      codeBlockRadius="10px"
+    />
+    <div slot="footer">
+      <button class="export-dialog__button" type="button" @click="isDialogOpen = false">Close</button>
+    </div>
+  </bq-dialog>
   <div class="theme-colors__buttons">
     <button id="reset-button" type="button" class="reset-button" @click="resetToDefault">Reset to Default</button>
     <button id="export-button" type="button" class="export-button" @click="openDialog">Export</button>
-    <bq-dialog class="export-dialog" :open="isDialogOpen" hide-close-button>
-      <h5 slot="title">Export Theme CSS Global Variables</h5>
-      <p style="margin-bottom: 20px">Copy and paste this code into your CSS</p>
-      <VCodeBlock
-        :code="themeStyle"
-        highlightjs
-        persistentCopyButton
-        maxHeight="500px"
-        lang="css"
-        :theme="isLightTheme ? 'default' : 'github-dark'"
-        codeBlockRadius="10px"
-      />
-      <div slot="footer">
-        <button class="export-dialog__button" type="button" @click="isDialogOpen = false">Close</button>
-      </div>
-    </bq-dialog>
   </div>
   <div class="theme-colors">
     <Card

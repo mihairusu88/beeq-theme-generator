@@ -129,5 +129,6 @@ import Card from '@/components/Card.vue';
 
 .card-wrapper :deep(.card__content) div bq-notification {
   width: 100%;
+  display: block;
 }
 </style>

@@ -52,8 +52,6 @@ import Card from '@/components/Card.vue';
 
 <style lang="css" scoped>
 .card-wrapper :deep(.card__content) {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
+  @apply flex flex-col items-center gap-[10px] md:flex-row md:justify-between md:items-start;
 }
 </style>

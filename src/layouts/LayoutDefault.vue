@@ -161,10 +161,7 @@ onUnmounted(removeBackToTopButtonEventListener);
 }
 
 .layout__footer-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
+  @apply flex w-full flex-col md:items-center md:flex-row md:justify-between;
 }
 
 .layout__footer .footer__description {
@@ -185,6 +182,8 @@ onUnmounted(removeBackToTopButtonEventListener);
   display: flex;
   align-items: center;
   gap: 10px;
+
+  @apply justify-center md:justify-start;
 }
 
 .layout__footer .footer__links .footer__link {
@@ -198,6 +197,8 @@ onUnmounted(removeBackToTopButtonEventListener);
   font-size: 14px;
   line-height: 20px;
   font-weight: 600;
+
+  @apply flex justify-center mt-[10px] md:justify-start md:mt-0;
 }
 
 .layout__back-to-top-button {

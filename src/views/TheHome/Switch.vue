@@ -15,7 +15,9 @@ import Card from '@/components/Card.vue';
 <style lang="css" scoped>
 .card-wrapper :deep(.card__content) {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 10px;
+
+  @apply md:grid-cols-5;
 }
 </style>

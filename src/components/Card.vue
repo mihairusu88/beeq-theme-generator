@@ -50,6 +50,7 @@ const emit = defineEmits(['toggle']);
   flex-direction: column;
   width: 100%;
   gap: 10px;
+  overflow: hidden;
 }
 
 .card__title {
@@ -66,6 +67,7 @@ const emit = defineEmits(['toggle']);
   padding: 20px;
   border: 1px solid #e7e8eb;
   border-radius: 5px;
+  overflow: hidden;
 }
 
 .card .card__header {

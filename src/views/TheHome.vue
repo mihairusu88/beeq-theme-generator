@@ -43,6 +43,10 @@ const themeStyle = computed(() => {
   return getThemeStyle(themeStore.colors);
 });
 
+const isOnboarded = computed(() => {
+  return localStorage.getItem('beeqThemeGenerator_isOnboarded');
+});
+
 const wrapper = ref(null);
 const { start } = useVOnboarding(wrapper);
 const steps = [
@@ -69,9 +73,7 @@ const onCloseOnboarding = () => {
 };
 
 const handleDOMContentLoaded = () => {
-  const isOnboarded = localStorage.getItem('beeqThemeGenerator_isOnboarded');
-
-  if (!isOnboarded) {
+  if (!isOnboarded.value) {
     setTimeout(() => {
       start();
 
@@ -108,10 +110,16 @@ onUnmounted(() => {
 
 <template>
   <main class="home relative flex overflow-hidden" :style="themeStyle">
-    <div class="container">
-      <h2>BEEQ Theme Generator</h2>
-      <p>Choose your colors from the sections below and customize your themes as you want.</p>
-      <VOnboardingWrapper ref="wrapper" :steps="steps" @finish="onCloseOnboarding" @exit="onCloseOnboarding" />
+    <div class="container px-[10px] md:px-0 overflow-hidden">
+      <h2 class="text-5xl">BEEQ Theme Generator</h2>
+      <p class="text-lg">Choose your colors from the sections below and customize your themes as you want.</p>
+      <VOnboardingWrapper
+        v-if="!isOnboarded"
+        ref="wrapper"
+        :steps="steps"
+        @finish="onCloseOnboarding"
+        @exit="onCloseOnboarding"
+      />
       <ThemeColors />
       <Buttons />
       <Accordions />
@@ -211,7 +219,6 @@ body[bq-mode='dark'] .v-onboarding-item__description {
 }
 
 .home .container p {
-  font-size: 20px;
   text-align: center;
   margin: 0;
 }
