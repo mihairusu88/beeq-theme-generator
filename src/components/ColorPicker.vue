@@ -48,6 +48,8 @@ const onUpdatePureColorDo = (color) => {
   padding: 10px 20px;
   border-radius: 5px;
   background: #f1f2f4;
+  min-width: 150px;
+  flex-grow: 1;
 }
 
 .base-color-picker .title {

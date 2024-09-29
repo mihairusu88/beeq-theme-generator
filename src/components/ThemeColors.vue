@@ -384,4 +384,8 @@ const openDialog = () => {
 body[bq-mode='dark'] .theme-colors {
   border-color: #2a2c35;
 }
+
+body[bq-mode='dark'] .theme-colors__buttons .reset-button {
+  background-color: #2a2c35;
+}
 </style>
