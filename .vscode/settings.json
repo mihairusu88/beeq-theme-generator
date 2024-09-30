@@ -13,5 +13,7 @@
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "eslint.validate": ["javascript", "typescript", "vue"]
+  "eslint.validate": ["javascript", "typescript", "vue"],
+  "css.customData": [".vscode/tailwind.json"],
+  "css.lint.unknownAtRules": "ignore"
 }
