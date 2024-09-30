@@ -69,6 +69,8 @@ const toggleSideMenuAppearance = () => {
           <bq-icon name="gear" slot="prefix"></bq-icon>
           Settings
         </bq-side-menu-item>
+
+        <bq-button @bqClick="toggleSideMenu" block>Close</bq-button>
       </bq-side-menu>
       <main>
         <div>
@@ -129,6 +131,8 @@ const toggleSideMenuAppearance = () => {
           <bq-icon name="gear" slot="prefix"></bq-icon>
           Settings
         </bq-side-menu-item>
+
+        <bq-button @bqClick="toggleSideMenuAppearance" block appearance="secondary">Close</bq-button>
       </bq-side-menu>
       <main>
         <div>
