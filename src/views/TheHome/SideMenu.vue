@@ -36,7 +36,6 @@ const closeSideMenu = (event) => {
 const addCloseSideMenuButtonEventListener = () => {
   const button = document.querySelector('.close-button');
 
-  console.log('hereee', button);
   if (!button) return;
 
   button.addEventListener('click', closeSideMenu);
