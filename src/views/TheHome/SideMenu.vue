@@ -1,23 +1,79 @@
 <script setup lang="js">
 import Card from '@/components/Card.vue';
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 
+const sideMenuRef = ref(null);
+const sideMenuAppearanceRef = ref(null);
 const isSideMenuOpen = ref(false);
 const isSideMenuAppearanceOpen = ref(false);
 
 const toggleSideMenu = () => {
+  isSideMenuAppearanceOpen.value = false;
   isSideMenuOpen.value = !isSideMenuOpen.value;
 };
 
 const toggleSideMenuAppearance = () => {
+  isSideMenuOpen.value = false;
   isSideMenuAppearanceOpen.value = !isSideMenuAppearanceOpen.value;
 };
+
+const closeSideMenu = (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+
+  isSideMenuOpen.value = false;
+  isSideMenuAppearanceOpen.value = false;
+
+  if (sideMenuRef.value) {
+    sideMenuRef.value.collapse = false;
+  }
+
+  if (sideMenuAppearanceRef.value) {
+    sideMenuAppearanceRef.value.collapse = false;
+  }
+};
+
+const addCloseSideMenuButtonEventListener = () => {
+  const button = document.querySelector('.close-button');
+
+  console.log('hereee', button);
+  if (!button) return;
+
+  button.addEventListener('click', closeSideMenu);
+};
+
+const removeCloseSideMenuButtonEventListener = () => {
+  const button = document.querySelector('.close-button');
+  if (!button) return;
+
+  button.removeEventListener('click', closeSideMenu);
+};
+
+watch(isSideMenuOpen, (newValue) => {
+  setTimeout(() => {
+    if (newValue) {
+      addCloseSideMenuButtonEventListener();
+    } else {
+      removeCloseSideMenuButtonEventListener();
+    }
+  }, 250);
+});
+
+watch(isSideMenuAppearanceOpen, (newValue) => {
+  setTimeout(() => {
+    if (newValue) {
+      addCloseSideMenuButtonEventListener();
+    } else {
+      removeCloseSideMenuButtonEventListener();
+    }
+  }, 250);
+});
 </script>
 
 <template>
   <Card title="Side Menu" class="card-wrapper">
     <div>
-      <bq-side-menu class="side-menu" v-if="isSideMenuOpen">
+      <bq-side-menu ref="sideMenuRef" class="side-menu" v-if="isSideMenuOpen">
         <div slot="logo">
           <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 1080 1080" class="logo">
             <path
@@ -37,7 +93,7 @@ const toggleSideMenuAppearance = () => {
         <bq-side-menu-item>
           <bq-icon name="package" slot="prefix"></bq-icon>
           Products
-          <bq-badge slot="suffix">5</bq-badge>
+          <bq-badge>5</bq-badge>
         </bq-side-menu-item>
 
         <bq-side-menu-item disabled>
@@ -68,6 +124,11 @@ const toggleSideMenuAppearance = () => {
         <bq-side-menu-item>
           <bq-icon name="gear" slot="prefix"></bq-icon>
           Settings
+        </bq-side-menu-item>
+
+        <bq-side-menu-item class="close-button">
+          <bq-icon name="x-circle" slot="prefix"></bq-icon>
+          Close
         </bq-side-menu-item>
       </bq-side-menu>
       <main>
@@ -77,7 +138,7 @@ const toggleSideMenuAppearance = () => {
       </main>
     </div>
     <div>
-      <bq-side-menu class="side-menu" v-if="isSideMenuAppearanceOpen" appearance="brand">
+      <bq-side-menu ref="sideMenuAppearanceRef" class="side-menu" v-if="isSideMenuAppearanceOpen" appearance="brand">
         <div slot="logo">
           <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 1080 1080" class="logo">
             <path
@@ -97,7 +158,7 @@ const toggleSideMenuAppearance = () => {
         <bq-side-menu-item>
           <bq-icon name="package" slot="prefix"></bq-icon>
           Products
-          <bq-badge slot="suffix">5</bq-badge>
+          <bq-badge>5</bq-badge>
         </bq-side-menu-item>
 
         <bq-side-menu-item disabled>
@@ -128,6 +189,11 @@ const toggleSideMenuAppearance = () => {
         <bq-side-menu-item>
           <bq-icon name="gear" slot="prefix"></bq-icon>
           Settings
+        </bq-side-menu-item>
+
+        <bq-side-menu-item class="close-button">
+          <bq-icon name="x-circle" slot="prefix"></bq-icon>
+          Close
         </bq-side-menu-item>
       </bq-side-menu>
       <main>
