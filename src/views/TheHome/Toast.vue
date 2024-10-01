@@ -42,4 +42,8 @@ import Card from '@/components/Card.vue';
 
   @apply flex flex-col items-center w-full md:flex-row md:justify-center md:items-start;
 }
+
+.card-wrapper :deep(.card__content) div bq-toast {
+  display: block;
+}
 </style>
