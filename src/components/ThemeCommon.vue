@@ -363,6 +363,7 @@ const isExpandedStrokeValues = ref(false);
   flex-wrap: wrap;
   flex-grow: 1;
   gap: 10px;
+  max-width: 100%;
 }
 
 body[bq-mode='dark'] .theme-common {

@@ -73,6 +73,7 @@ onUnmounted(() => {
   border-radius: 5px;
   background: #f1f2f4;
   width: 365px;
+  max-width: 100%;
   flex-grow: 0;
 }
 
