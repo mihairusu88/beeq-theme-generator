@@ -1,4 +1,6 @@
 <script setup lang="js">
+import { ref, watch } from 'vue';
+
 const props = defineProps({
   title: {
     type: String,
@@ -18,13 +20,39 @@ const props = defineProps({
   },
 });
 
+const isCardExpanded = ref(props.isExpanded);
 const emit = defineEmits(['toggle']);
+
+watch(
+  () => props.isExpanded,
+  (newValue) => {
+    isCardExpanded.value = newValue;
+  },
+);
 </script>
 
 <template>
   <div class="card">
     <div class="card__header">
-      <h1 class="card__title">{{ title }}</h1>
+      <h1 class="card__title">
+        {{ title }}
+        <bq-button
+          class="card__title-toggle-button"
+          v-if="!showToggleButton"
+          appearance="secondary"
+          :border="`m`"
+          href=""
+          justify-content="center"
+          size="small"
+          target=""
+          type="button"
+          variant="standard"
+          @bqClick="isCardExpanded = !isCardExpanded"
+        >
+          <bq-icon v-if="!isCardExpanded" name="caret-down"></bq-icon>
+          <bq-icon v-else name="caret-up"></bq-icon>
+        </bq-button>
+      </h1>
       <div
         v-if="showToggleButton"
         :id="toggleButtonId"
@@ -38,7 +66,7 @@ const emit = defineEmits(['toggle']);
         <div></div>
       </div>
     </div>
-    <div v-if="isExpanded" class="card__content">
+    <div v-if="isCardExpanded" class="card__content">
       <slot></slot>
     </div>
   </div>
@@ -57,6 +85,29 @@ const emit = defineEmits(['toggle']);
   font-weight: 500;
   font-size: 24px;
   line-height: 32px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.card__title .card__title-toggle-button {
+  --bq-button--border-radius: 0.75rem;
+  --bq-button--border-color: transparent;
+  --bq-button--border-radius: 0.75rem;
+  --bq-button--border-style: solid;
+  --bq-button--border-width: 0;
+  --bq-button--small-height: 32px;
+  --bq-button--small-paddingX: 0.5rem;
+  --bq-button--small-paddingY: 0.25rem;
+  --bq-button--small-font-size: 1rem;
+  --bq-button--medium-height: 48px;
+  --bq-button--medium-paddingX: 1rem;
+  --bq-button--medium-paddingY: 0.75rem;
+  --bq-button--medium-font-size: 1rem;
+  --bq-button--large-height: 56px;
+  --bq-button--large-paddingX: 1.5rem;
+  --bq-button--large-paddingY: 1rem;
+  --bq-button--large-font-size: 1rem;
 }
 
 .card__content {

@@ -206,6 +206,22 @@ onUnmounted(removeBackToTopButtonEventListener);
   bottom: 40px;
   right: 10px;
   z-index: 12;
+  --bq-button--border-color: transparent;
+  --bq-button--border-radius: 0.75rem;
+  --bq-button--border-style: solid;
+  --bq-button--border-width: 0;
+  --bq-button--small-height: 32px;
+  --bq-button--small-paddingX: 0.5rem;
+  --bq-button--small-paddingY: 0.25rem;
+  --bq-button--small-font-size: 1rem;
+  --bq-button--medium-height: 48px;
+  --bq-button--medium-paddingX: 1rem;
+  --bq-button--medium-paddingY: 0.75rem;
+  --bq-button--medium-font-size: 1rem;
+  --bq-button--large-height: 56px;
+  --bq-button--large-paddingX: 1.5rem;
+  --bq-button--large-paddingY: 1rem;
+  --bq-button--large-font-size: 1rem;
 }
 
 body[bq-mode='dark'] .layout__header {

@@ -30,7 +30,9 @@ import Tag from './TheHome/Tag.vue';
 import Textarea from './TheHome/Textarea.vue';
 import Toast from './TheHome/Toast.vue';
 import Tooltip from './TheHome/Tooltip.vue';
+import Typography from './TheHome/Typography.vue';
 import ThemeColors from '../components/ThemeColors.vue';
+import ThemeCommon from '../components/ThemeCommon.vue';
 import { useThemeStore } from '../stores/themeStore';
 import { computed, onMounted, watch, ref, onUnmounted } from 'vue';
 import { VOnboardingWrapper, useVOnboarding } from 'v-onboarding';
@@ -40,7 +42,7 @@ const themeStore = useThemeStore();
 const { getThemeStyle } = themeStore;
 
 const themeStyle = computed(() => {
-  return getThemeStyle(themeStore.colors);
+  return getThemeStyle();
 });
 
 const isOnboarded = computed(() => {
@@ -53,8 +55,8 @@ const steps = [
   {
     attachTo: { element: '#brand-colors-toggle-button' },
     content: {
-      title: 'Section colors',
-      description: 'Click to show section colors and choose them by using the color picker',
+      title: 'Section tokens',
+      description: 'Click to show section tokens and modify them',
     },
   },
   {
@@ -63,7 +65,7 @@ const steps = [
   },
   {
     attachTo: { element: '#reset-button' },
-    content: { title: 'Reset colors', description: 'Reset all colors to default' },
+    content: { title: 'Reset tokens', description: 'Reset all tokens to default' },
   },
 ];
 
@@ -121,6 +123,8 @@ onUnmounted(() => {
         @exit="onCloseOnboarding"
       />
       <ThemeColors />
+      <ThemeCommon />
+      <Typography />
       <Buttons />
       <Accordions />
       <Alert />
@@ -209,7 +213,7 @@ body[bq-mode='dark'] .v-onboarding-item__description {
   justify-items: flex-start;
   max-width: 1200px;
   width: 100vw;
-  gap: 30px;
+  gap: 25px;
   padding-bottom: 40px;
 }
 

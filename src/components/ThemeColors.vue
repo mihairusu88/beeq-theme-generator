@@ -13,7 +13,7 @@ const isExpandedDataColors = ref(false);
 const isExpandedNeutralColors = ref(false);
 const isDialogOpen = ref(false);
 const themeStyle = computed(() => {
-  return getThemeStyle(themeStore.colors, true);
+  return getThemeStyle(true);
 });
 const isLightTheme = computed(() => {
   return themeStore.currentTheme === 'light';
@@ -176,49 +176,49 @@ const openDialog = () => {
     >
       <div class="theme-colors__color-section-colors">
         <ColorPicker
-          title="data-1"
-          v-model="themeStore.colors.data1"
-          @update:pureColor="(color) => (themeStore.colors.data1 = color)"
+          title="data-01"
+          v-model="themeStore.colors.data01"
+          @update:pureColor="(color) => (themeStore.colors.data01 = color)"
         />
         <ColorPicker
-          title="data-2"
-          v-model="themeStore.colors.data2"
-          @update:pureColor="(color) => (themeStore.colors.data2 = color)"
+          title="data-02"
+          v-model="themeStore.colors.data02"
+          @update:pureColor="(color) => (themeStore.colors.data02 = color)"
         />
         <ColorPicker
-          title="data-3"
-          v-model="themeStore.colors.data3"
-          @update:pureColor="(color) => (themeStore.colors.data3 = color)"
+          title="data-03"
+          v-model="themeStore.colors.data03"
+          @update:pureColor="(color) => (themeStore.colors.data03 = color)"
         />
         <ColorPicker
-          title="data-4"
-          v-model="themeStore.colors.data4"
-          @update:pureColor="(color) => (themeStore.colors.data4 = color)"
+          title="data-04"
+          v-model="themeStore.colors.data04"
+          @update:pureColor="(color) => (themeStore.colors.data04 = color)"
         />
         <ColorPicker
-          title="data-5"
-          v-model="themeStore.colors.data5"
-          @update:pureColor="(color) => (themeStore.colors.data5 = color)"
+          title="data-05"
+          v-model="themeStore.colors.data05"
+          @update:pureColor="(color) => (themeStore.colors.data05 = color)"
         />
         <ColorPicker
-          title="data-6"
-          v-model="themeStore.colors.data6"
-          @update:pureColor="(color) => (themeStore.colors.data6 = color)"
+          title="data-06"
+          v-model="themeStore.colors.data06"
+          @update:pureColor="(color) => (themeStore.colors.data06 = color)"
         />
         <ColorPicker
-          title="data-7"
-          v-model="themeStore.colors.data7"
-          @update:pureColor="(color) => (themeStore.colors.data7 = color)"
+          title="data-07"
+          v-model="themeStore.colors.data07"
+          @update:pureColor="(color) => (themeStore.colors.data07 = color)"
         />
         <ColorPicker
-          title="data-8"
-          v-model="themeStore.colors.data8"
-          @update:pureColor="(color) => (themeStore.colors.data8 = color)"
+          title="data-08"
+          v-model="themeStore.colors.data08"
+          @update:pureColor="(color) => (themeStore.colors.data08 = color)"
         />
         <ColorPicker
-          title="data-9"
-          v-model="themeStore.colors.data9"
-          @update:pureColor="(color) => (themeStore.colors.data9 = color)"
+          title="data-09"
+          v-model="themeStore.colors.data09"
+          @update:pureColor="(color) => (themeStore.colors.data09 = color)"
         />
         <ColorPicker
           title="data-10"
