@@ -368,7 +368,7 @@ const openDialog = () => {
 }
 
 .export-dialog {
-  --bq-dialog--background: #4f46e5;
+  --bq-dialog--background: #ffffff;
   --bq-dialog--background-backdrop: #1c1d23;
   --bq-dialog--text-color: #2a2c35;
   --bq-dialog--box-shadow: 0 20px 58px -16px rgba(0, 0, 0, 0.16);
@@ -387,6 +387,7 @@ const openDialog = () => {
 
 .export-dialog::part(dialog) {
   width: 600px;
+  --bq-dialog--border-radius: 0.75rem;
 }
 
 .export-dialog .export-dialog__button {
@@ -405,5 +406,10 @@ body[bq-mode='dark'] .theme-colors {
 
 body[bq-mode='dark'] .theme-colors__buttons .reset-button {
   background-color: #2a2c35;
+}
+
+body[bq-mode='dark'] .export-dialog {
+  --bq-dialog--background: #2a2c35;
+  --bq-dialog--text-color: #ffffff;
 }
 </style>
