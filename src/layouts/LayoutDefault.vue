@@ -94,7 +94,7 @@ onUnmounted(removeBackToTopButtonEventListener);
       variant="ghost"
       :border="'full'"
       size="medium"
-      style="--bq-stroke--brand: #4f46e5"
+      style="--bq-stroke--brand: #4f46e5 --bq-button--border-radius: 9999px"
     >
       <bq-icon name="arrow-up" style="--bq-icon--size: 24px; --bq-icon--color: #4f46e5" size="24"></bq-icon>
     </bq-button>

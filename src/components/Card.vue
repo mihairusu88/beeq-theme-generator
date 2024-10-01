@@ -1,5 +1,5 @@
 <script setup lang="js">
-import { ref, watch } from 'vue';
+import { ref, watch, onMounted, onUnmounted } from 'vue';
 
 const props = defineProps({
   title: {
@@ -20,6 +20,7 @@ const props = defineProps({
   },
 });
 
+const cardRef = ref(null);
 const isCardExpanded = ref(props.isExpanded);
 const emit = defineEmits(['toggle']);
 
@@ -29,10 +30,42 @@ watch(
     isCardExpanded.value = newValue;
   },
 );
+
+const toggleCardContentVisibility = ($event) => {
+  isCardExpanded.value = !isCardExpanded.value;
+};
+
+const addCardTitleButtonEventListener = () => {
+  const button = cardRef.value.querySelector('.card__title-toggle-button');
+
+  if (!button) return;
+
+  button.addEventListener('click', toggleCardContentVisibility);
+};
+
+const removeCardTitleButtonEventListener = () => {
+  if (!cardRef.value) return;
+
+  const button = cardRef.value.querySelector('.card__title-toggle-button');
+
+  if (!button) return;
+
+  button.removeEventListener('click', toggleCardContentVisibility);
+};
+
+onMounted(() => {
+  setTimeout(() => {
+    addCardTitleButtonEventListener();
+  }, 100);
+});
+
+onUnmounted(() => {
+  removeCardTitleButtonEventListener();
+});
 </script>
 
 <template>
-  <div class="card">
+  <div ref="cardRef" class="card">
     <div class="card__header">
       <h1 class="card__title">
         {{ title }}
@@ -47,7 +80,6 @@ watch(
           target=""
           type="button"
           variant="standard"
-          @bqClick="isCardExpanded = !isCardExpanded"
         >
           <bq-icon v-if="!isCardExpanded" name="caret-down"></bq-icon>
           <bq-icon v-else name="caret-up"></bq-icon>

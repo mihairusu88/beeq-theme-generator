@@ -367,6 +367,24 @@ const openDialog = () => {
   cursor: pointer;
 }
 
+.export-dialog {
+  --bq-dialog--background: #4f46e5;
+  --bq-dialog--background-backdrop: #1c1d23;
+  --bq-dialog--text-color: #2a2c35;
+  --bq-dialog--box-shadow: 0 20px 58px -16px rgba(0, 0, 0, 0.16);
+  --bq-dialog--border-color: transparent;
+  --bq-dialog--border-radius: 0.75rem;
+  --bq-dialog--border-style: none;
+  --bq-dialog--border-width: unset;
+  --bq-dialog--padding: 1.5rem;
+  --bq-dialog--content-footer-gap: 1.5rem;
+  --bq-dialog--title-body-gap: 0.75rem;
+  --bq-dialog--width-small: 320px;
+  --bq-dialog--width-medium: 480px;
+  --bq-dialog--width-large: 640px;
+  --bq-dialog-z-index: 10;
+}
+
 .export-dialog::part(dialog) {
   width: 600px;
 }

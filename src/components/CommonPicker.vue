@@ -1,5 +1,5 @@
 <script setup lang="js">
-import { toRefs } from 'vue';
+import { onMounted, toRefs, onUnmounted, ref } from 'vue';
 
 const props = defineProps({
   title: {
@@ -12,19 +12,51 @@ const props = defineProps({
   },
 });
 
+const baseCommonPickerRef = ref(null);
 const { modelValue } = toRefs(props);
 
 const emit = defineEmits(['update:modelValue']);
+
+const emitInputValue = ($event) => {
+  emit('update:modelValue', $event.target.value);
+};
+
+const addInputEventListener = () => {
+  const input = baseCommonPickerRef.value
+    .querySelector('.base-common-picker__input')
+    ?.shadowRoot.querySelector('input');
+
+  if (!input) return;
+
+  input.addEventListener('input', emitInputValue);
+};
+
+const removeInputEventListener = () => {
+  if (!baseCommonPickerRef.value) return;
+
+  const input = baseCommonPickerRef.value
+    .querySelector('.base-common-picker__input')
+    ?.shadowRoot.querySelector('input');
+
+  if (!input) return;
+
+  input.removeEventListener('input', emitInputValue);
+};
+
+onMounted(() => {
+  setTimeout(() => {
+    addInputEventListener();
+  }, 100);
+});
+
+onUnmounted(() => {
+  removeInputEventListener();
+});
 </script>
 
 <template>
-  <div class="base-common-picker">
-    <bq-input
-      class="base-common-picker__input"
-      :placeholder="`Enter your value here...`"
-      :value="modelValue"
-      @bqInput="emit('update:modelValue', $event.detail.value ? $event.detail.value : '0')"
-    >
+  <div ref="baseCommonPickerRef" class="base-common-picker">
+    <bq-input class="base-common-picker__input" :placeholder="`Enter your value here...`" :value="modelValue">
       <label class="font-bold" for="" slot="label">{{ title }}</label>
     </bq-input>
   </div>
